@@ -15,13 +15,19 @@ namespace WebAppSales.Controllers
 
         public IActionResult Index()
         {
+
+            ViewData["Message"] = "Salles Web MVC App C# ";
+            ViewData["email"] = "nicolemello6002@gmail.com";
+
             return View();
+           
         }
 
         public IActionResult Privacy()
         {
             return View();
         }
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
