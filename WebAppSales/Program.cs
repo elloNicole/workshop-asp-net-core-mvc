@@ -1,6 +1,11 @@
+ï»¿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using WebAppSales.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<WebAppSalesContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WebAppSalesContext") ?? throw new InvalidOperationException("Connection string 'WebAppSalesContext' not found.")));
 
-// Adicione os serviços necessários ao contêiner.
+// Adicione os serviï¿½os necessï¿½rios ao contï¿½iner.
 builder.Services.AddControllersWithViews();
 
 // Configurar logging
